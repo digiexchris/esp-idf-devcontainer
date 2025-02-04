@@ -6,8 +6,12 @@
       // Choose ESP_BOARD: [esp32, esp32c3, esp32s2, esp32s3, all]
       "ESP_BOARD": "esp32",
       // Choose ESP_IDF_VERSION: esp-idf branch
-      "ESP_IDF_VERSION": "release/v4.4"
-    }
+      "ESP_IDF_VERSION": "release/v5.2"
+    },
+    "runArgs": [
+      "--env-file",
+      "${localWorkspaceFolder}/.devcontainer/.env"
+    ],
   },
   "customizations": {
     "vscode": {
@@ -37,5 +41,14 @@
     8000
   ],
   "workspaceMount": "source=${localWorkspaceFolder},target=/home/esp/workspace,type=bind,consistency=cached",
-  "workspaceFolder": "/home/esp/workspace/"
+  "workspaceFolder": "/home/esp/workspace/",
+  "mounts": [
+    "source=/dev/,target=/dev/,type=bind,consistency=consistent"
+  ],
+  "runArgs": [
+    "--privileged"
+  ],
+  "features": {},
+  "postAttachCommand": " service udev restart"
+  // "postAttachCommand": "sudo service udevd restart"
 }

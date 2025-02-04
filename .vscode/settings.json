@@ -1,8 +1,16 @@
 {
-  "idf.adapterTargetName": "esp32",
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "idf.adapterTargetName": "esp32s3",
   "idf.openOcdConfigs": [
     "interface/ftdi/esp32_devkitj_v1.cfg",
-    "target/esp32.cfg"
+    "target/esp32s3.cfg"
   ],
+  "idf.enableCCache": true,
+  "idf.toolsPath": "/home/esp/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20230928/xtensa-esp-elf/bin",
+  "idf.espIdfPath": "/home/esp/.espressif/frameworks/esp-idf",
   "C_Cpp.intelliSenseEngineFallback": "Enabled"
 }

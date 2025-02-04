@@ -2,13 +2,14 @@ FROM debian:bullseye-slim
 ENV DEBIAN_FRONTEND=noninteractive
 ENV LC_ALL=C.UTF-8
 ENV LANG=C.UTF-8
+ENV IDF_CCACHE_ENABLE=1
 ARG CONTAINER_USER=esp
 ARG CONTAINER_GROUP=esp
 ARG ESP_BOARD=all
-ARG ESP_IDF_VERSION=release/v4.4
+ARG ESP_IDF_VERSION=release/v5.2
 # libpython2.7 is due to GDB
 RUN apt-get update \
-    && apt-get install -y git curl wget flex bison gperf python3 python3-pip  \
+    && apt-get install -y git curl wget flex bison gperf python3 python3-venv python3-pip  \
     python3-setuptools ninja-build ccache libffi-dev libssl-dev dfu-util \
     libusb-1.0-0 libpython2.7 unzip \
     && apt-get clean -y && rm -rf /var/lib/apt/lists/* /tmp/library-scripts
